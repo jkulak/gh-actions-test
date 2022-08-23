@@ -16,6 +16,6 @@ jobs:
             - name: Build and push
               uses: docker/build-push-action@v3
               with:
-                  context: "{{defaultContext}}:app"
+                  file: ./app/Dockerfile
                   push: true
                   tags: grabtrack/app:latest
