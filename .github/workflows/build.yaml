@@ -18,9 +18,6 @@ jobs:
             - name: debug2
               run: pwd
               
-            - name: echocontext
-              run: echo ${{defaultContext}}
-              
             - name: Login to DockerHub
               uses: docker/login-action@v2
               with:
@@ -29,6 +26,6 @@ jobs:
             - name: Build and push
               uses: docker/build-push-action@v3
               with:
-                  context: "{{defaultContext}}:refs/remotes/origin/main/app"
+                  context: ./app
                   push: true
                   tags: grabtrack/app:latest
